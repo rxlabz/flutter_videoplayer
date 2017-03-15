@@ -2,7 +2,7 @@
 
 An example of native ios video in a [flutter](http://flutter.io) app
 
-![screen][screen.png]
+![screen](screen.png)
 
 ## Flutter (Dart)
 
@@ -44,7 +44,7 @@ void initState() {
 
 ## iOS (Swift)
 
-### AppDelegate & FlutterMessageListener
+### [AppDelegate](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/AppDelegate.swift) & [FlutterMessageListener](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/player_listeners.swift)
 
 On iOS side, each Flutter message is listen by a FlutterListener
 
@@ -60,10 +60,12 @@ class PlayerCommandListener: NSObject, FlutterMessageListener {
 
 ```
 
-### FlutterViewController
+### [FlutterViewController](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/MediaPlayerViewController.swift)
 
 The flutterViewController offers a method send() to send messages inside the flutter app
 
 ```swift
     send( "Pssst" , withMessageName: "channelId")
 ```
+
+In this example, the MediaPlayerViewController class extends FlutterViewController, and implements the ability to draw a video "on top" of the flutter app. 
