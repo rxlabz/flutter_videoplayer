@@ -69,3 +69,5 @@ The flutterViewController offers a method send() to send messages inside the flu
 ```
 
 In this example, the MediaPlayerViewController class extends FlutterViewController, and implements the ability to draw a video "on top" of the flutter app. 
+
+The viewController also send video progress infos to flutter.
