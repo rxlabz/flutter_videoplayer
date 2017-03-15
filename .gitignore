@@ -6,4 +6,5 @@
 build/
 ios/.generated/
 packages
+/local
 pubspec.lock
