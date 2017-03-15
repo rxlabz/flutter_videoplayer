@@ -24,7 +24,7 @@ Here, each message receive a json response with a status = 1 || 0 and an optiona
   "info":"an optional string"
 }
 ```
-The Flutter app also listen to Native message send from iOS 
+The Flutter app also listen to native messages sended from iOS 
 via a [PlatformMessageChannel](https://docs.flutter.io/flutter/services/PlatformMessageChannel-class.html). 
 
 ```dart
@@ -63,7 +63,7 @@ class PlayerCommandListener: NSObject, FlutterMessageListener {
 
 ### [FlutterViewController](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/MediaPlayerViewController.swift)
 
-The flutterViewController offers a method send() to send messages inside the flutter app
+The flutterViewController offers a method send() to send messages to the "dart part" of the flutter app
 
 ```swift
     send( "Pssst" , withMessageName: "channelId")
