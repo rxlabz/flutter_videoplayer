@@ -12,10 +12,11 @@ Flutter to iOS messages are send via [PlatformMessages.sendString](https://docs.
  which needs a messageName, and an optional parameter.
  
 ```dart
-PlatformMessages.sendString('playVideo', kVideoUrl);
+String response = await PlatformMessages.sendString('playVideo', kVideoUrl);
 ```
 
-Each call receive a json response with a status = 1 || 0 and an optional string.
+Each message will receive an async response back.
+Here, each message receive a json response with a status = 1 || 0 and an optional string.
 
 ```json
 {
@@ -46,7 +47,7 @@ void initState() {
 
 ### [AppDelegate](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/AppDelegate.swift) & [FlutterMessageListener](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/player_listeners.swift)
 
-On iOS side, each Flutter message is listen by a FlutterListener
+On iOS side, each Flutter message is listened by a FlutterListener
 
 ```swift
 class PlayerCommandListener: NSObject, FlutterMessageListener {
