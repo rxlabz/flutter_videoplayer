@@ -1,6 +1,6 @@
 # Flutter iOS Videoplayer
 
-An example of native ios video in a [flutter](http://flutter.io) app
+An example of native ios swift videoplayer on top of a [flutter](http://flutter.io) app
 
 ![screen](screen.png)
 
@@ -72,3 +72,9 @@ The flutterViewController offers a method send() to send messages inside the flu
 In this example, the MediaPlayerViewController class extends FlutterViewController, and implements the ability to draw a video "on top" of the flutter app. 
 
 The viewController also send video progress infos to flutter.
+
+### Android, Audio...
+
+For now this example only works on iOS ( ARM64 : iPhone5S+ ), you can find 
+an older, sketchier ObjC/Java example [here](https://github.com/rxlabz/flutter-mediaplayer-plugin),
+ with more types of player ( activities and audio ) for Android and iOS.
