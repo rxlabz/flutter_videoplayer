@@ -17,10 +17,22 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		B1F3D14E8117A6C9F65810E0 /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D558BB7489B1C82B42A9097 /* libPods-Runner.a */; };
+		C9560ED2F9D129C6E6C11FED /* progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95602E085E53A801CC8CC83 /* progress.swift */; };
+		C9560ED4B112486A37D0602E /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95608E348564B534BEDD06C /* VideoPlayer.swift */; };
+		FD35EE441E7DFF2D00F0FE97 /* flutter_videoplayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD35EE431E7DFF2D00F0FE97 /* flutter_videoplayerTests.swift */; };
+		FD35EE4C1E7DFFD100F0FE97 /* VideoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD35EE4B1E7DFFD100F0FE97 /* VideoTest.swift */; };
 		FDF98A831E7988A40042D51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF98A801E7988A40042D51B /* AppDelegate.swift */; };
-		FDF98A841E7988A40042D51B /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF98A811E7988A40042D51B /* MediaPlayerViewController.swift */; };
-		FDF98A851E7988A40042D51B /* player_listeners.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF98A821E7988A40042D51B /* player_listeners.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD35EE461E7DFF2D00F0FE97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97C146ED1CF9000F007C117D;
+			remoteInfo = Runner;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
@@ -50,9 +62,14 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95602E085E53A801CC8CC83 /* progress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = progress.swift; sourceTree = "<group>"; };
+		C95608E348564B534BEDD06C /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		FD35EE3A1E7DFDBA00F0FE97 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FD35EE411E7DFF2D00F0FE97 /* flutter_videoplayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flutter_videoplayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD35EE431E7DFF2D00F0FE97 /* flutter_videoplayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flutter_videoplayerTests.swift; sourceTree = "<group>"; };
+		FD35EE451E7DFF2D00F0FE97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD35EE4B1E7DFFD100F0FE97 /* VideoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoTest.swift; path = test/VideoTest.swift; sourceTree = "<group>"; };
 		FDF98A801E7988A40042D51B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDF98A811E7988A40042D51B /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
-		FDF98A821E7988A40042D51B /* player_listeners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = player_listeners.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +79,13 @@
 			files = (
 				9705A1C61CF904A100538489 /* Flutter.framework in Frameworks */,
 				B1F3D14E8117A6C9F65810E0 /* libPods-Runner.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD35EE3E1E7DFF2D00F0FE97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +117,7 @@
 			children = (
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
+				FD35EE421E7DFF2D00F0FE97 /* flutter_videoplayerTests */,
 				97C146EF1CF9000F007C117D /* Products */,
 				840012C8B5EDBCF56B0E4AC1 /* Pods */,
 				CF3B75C9A7D2FA2A4C99F110 /* Frameworks */,
@@ -103,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				97C146EE1CF9000F007C117D /* Runner.app */,
+				FD35EE411E7DFF2D00F0FE97 /* flutter_videoplayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,12 +137,13 @@
 			isa = PBXGroup;
 			children = (
 				FDF98A801E7988A40042D51B /* AppDelegate.swift */,
-				FDF98A811E7988A40042D51B /* MediaPlayerViewController.swift */,
-				FDF98A821E7988A40042D51B /* player_listeners.swift */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
 				97C147021CF9000F007C117D /* Info.plist */,
+				C95608E348564B534BEDD06C /* VideoPlayer.swift */,
+				C95602E085E53A801CC8CC83 /* progress.swift */,
+				FD35EE3C1E7DFDCC00F0FE97 /* test */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -124,9 +151,27 @@
 		CF3B75C9A7D2FA2A4C99F110 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD35EE3A1E7DFDBA00F0FE97 /* XCTest.framework */,
 				4D558BB7489B1C82B42A9097 /* libPods-Runner.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD35EE3C1E7DFDCC00F0FE97 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				FD35EE4B1E7DFFD100F0FE97 /* VideoTest.swift */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		FD35EE421E7DFF2D00F0FE97 /* flutter_videoplayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD35EE431E7DFF2D00F0FE97 /* flutter_videoplayerTests.swift */,
+				FD35EE451E7DFF2D00F0FE97 /* Info.plist */,
+			);
+			path = flutter_videoplayerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,12 +200,31 @@
 			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FD35EE401E7DFF2D00F0FE97 /* flutter_videoplayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD35EE481E7DFF2D00F0FE97 /* Build configuration list for PBXNativeTarget "flutter_videoplayerTests" */;
+			buildPhases = (
+				FD35EE3D1E7DFF2D00F0FE97 /* Sources */,
+				FD35EE3E1E7DFF2D00F0FE97 /* Frameworks */,
+				FD35EE3F1E7DFF2D00F0FE97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD35EE471E7DFF2D00F0FE97 /* PBXTargetDependency */,
+			);
+			name = flutter_videoplayerTests;
+			productName = flutter_videoplayerTests;
+			productReference = FD35EE411E7DFF2D00F0FE97 /* flutter_videoplayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		97C146E61CF9000F007C117D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "The Chromium Authors";
 				TargetAttributes = {
@@ -168,6 +232,12 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 2P474ERK4G;
 						LastSwiftMigration = 0820;
+					};
+					FD35EE401E7DFF2D00F0FE97 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2P474ERK4G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 97C146ED1CF9000F007C117D;
 					};
 				};
 			};
@@ -185,6 +255,7 @@
 			projectRoot = "";
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
+				FD35EE401E7DFF2D00F0FE97 /* flutter_videoplayerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,6 +271,13 @@
 				9740EEB41CF90195004384FC /* Debug.xcconfig in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD35EE3F1E7DFF2D00F0FE97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +364,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDF98A841E7988A40042D51B /* MediaPlayerViewController.swift in Sources */,
 				FDF98A831E7988A40042D51B /* AppDelegate.swift in Sources */,
-				FDF98A851E7988A40042D51B /* player_listeners.swift in Sources */,
+				C9560ED4B112486A37D0602E /* VideoPlayer.swift in Sources */,
+				C9560ED2F9D129C6E6C11FED /* progress.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD35EE3D1E7DFF2D00F0FE97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD35EE441E7DFF2D00F0FE97 /* flutter_videoplayerTests.swift in Sources */,
+				FD35EE4C1E7DFFD100F0FE97 /* VideoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD35EE471E7DFF2D00F0FE97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97C146ED1CF9000F007C117D /* Runner */;
+			targetProxy = FD35EE461E7DFF2D00F0FE97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
@@ -455,6 +550,41 @@
 			};
 			name = Release;
 		};
+		FD35EE491E7DFF2D00F0FE97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 2P474ERK4G;
+				INFOPLIST_FILE = flutter_videoplayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "bz.rxla.flutter-videoplayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/Runner";
+			};
+			name = Debug;
+		};
+		FD35EE4A1E7DFF2D00F0FE97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 2P474ERK4G;
+				INFOPLIST_FILE = flutter_videoplayerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "bz.rxla.flutter-videoplayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/Runner";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -475,6 +605,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FD35EE481E7DFF2D00F0FE97 /* Build configuration list for PBXNativeTarget "flutter_videoplayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD35EE491E7DFF2D00F0FE97 /* Debug */,
+				FD35EE4A1E7DFF2D00F0FE97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

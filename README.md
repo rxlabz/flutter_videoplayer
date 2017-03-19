@@ -1,72 +1,96 @@
 # Flutter iOS Videoplayer
 
-An example of native ios swift videoplayer on top of a [flutter](http://flutter.io) app
+An example of native ios swift videoplayer on top of a [flutter](http://flutter.io) app using the Platform messaging API.
 
 ![screen](screen.png)
 
 ## Flutter (Dart)
 
-The Flutter app send messages to native "app container"
+Using a [PlatformMethodChannel](https://docs.flutter.io/flutter/services/PlatformMethodChannel-class.html), the Flutter app can call methods from the platform "context" (iOS, Android,...) 
 
-Flutter to iOS messages are send via [PlatformMessages.sendString](https://docs.flutter.io/flutter/services/PlatformMessages/sendString.html),
- which needs a messageName, and an optional parameter.
- 
 ```dart
-String response = await PlatformMessages.sendString('playVideo', kVideoUrl);
+const PlatformMethodChannel videoChannel =
+  const PlatformMethodChannel("video", const JSONMethodCodec());
+
+// ...
+
+String response = await config.videoChannel.invokeMethod('playVideo', kVideoUrl);
+
 ```
 
 Each message will receive an async response back.
-Here, each message receive a json response with a status = 1 || 0 and an optional string.
+Here, each message receive a json response with a status = 1 || 0 and an optional duration.
 
 ```json
 {
   "status":1,
-  "info":"an optional string"
+  "info":"0:20"
 }
 ```
-The Flutter app also listen to native messages sended from iOS 
+The Flutter app also listen to the native messages sended from iOS 
 via a [PlatformMessageChannel](https://docs.flutter.io/flutter/services/PlatformMessageChannel-class.html). 
 
 ```dart
-static const PlatformMessageChannel<String> platform =
-      const PlatformMessageChannel<String>("channelId", const StringCodec());
+const PlatformMessageChannel progressChannel = const PlatformMessageChannel(
+      kProgressChannelName, const JSONMessageCodec());
 
 // ...
 
 @override
 void initState() {
-  platform.setMessageHandler((String rawResponse) async {
-    print('response : $rawResponse');
-    return '';
-  });
+  config.progressChannel.setMessageHandler((message) {
+        setState(() {
+          _videoProgress = message["data"];
+        });
+      });
 }
 
 ```
 
 ## iOS (Swift)
 
-### [AppDelegate](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/AppDelegate.swift) & [FlutterMessageListener](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/player_listeners.swift)
+### [AppDelegate](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/AppDelegate.swift) & [FlutterVideoPlayer](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/player_listeners.swift)
 
-On iOS side, each Flutter message is listened by a FlutterListener
+On iOS side, you find the corresponding channels with attached methodCall handler.
 
 ```swift
-class PlayerCommandListener: NSObject, FlutterMessageListener {
-  var messageName: String = "flutterMessage"
+var playerChannel = FlutterMethodChannel(
+    name: name,
+    binaryMessenger: controller,
+    codec: FlutterJSONMethodCodec.sharedInstance())
 
-  public func didReceive(_ message: String!) -> String! {
-  print("got -> \(message)")
-    return "NativeContainer received : \(message)"
-  }
-}
+// ...
+
+playerChannel?.setMethodCallHandler {
+      (call: FlutterMethodCall?, result: FlutterResultReceiver?) -> Void in
+      print("Swift-> methodCallHandler \(call!.method)")
+
+      switch (call!.method) {
+      case "playVideo":
+        let res = try! self.playVideo(url: call!.arguments! as! String)
+        result!("{\"status\":\(res),\"info\":\"\(self.timeFormatter.string(from: self.getVideoDuration())!)\"}", nil)
+      case "pauseVideo":
+        result!("{\"status\":\(self.pauseVideo())}", nil)
+      case "stopVideo":
+        result!("{\"status\":\(self.stopVideo())}", nil)
+      default:
+        print("Error !!! Unknown method -> \(call!.method)")
+      }
+    }
 
 ```
 
-### [FlutterViewController](https://github.com/rxlabz/flutter_videoplayer/blob/master/ios/Runner/MediaPlayerViewController.swift)
+### Platform to Dart
 
-The flutterViewController offers a method send() to send messages to the "dart part" of the flutter app
+The FlutterMessageChannel offers a sendMessage() method to pass values with the "dart part" of the flutter app
 
 ```swift
-    send( "Pssst" , withMessageName: "channelId")
+var progressChannel = FlutterMessageChannel( name: name, binaryMessenger: controller,
+    codec: FlutterJSONMessageCodec())
+
+// ...
+
+self.progressChannel.sendMessage(PlayerMessage(type: 2, data: progress).toMap())
 ```
 
 In this example, the MediaPlayerViewController class extends FlutterViewController, and implements the ability to draw a video "on top" of the flutter app. 

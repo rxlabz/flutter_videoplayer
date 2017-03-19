@@ -1,35 +1,24 @@
 import UIKit
+import AVFoundation
 import Flutter
 
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
 
+  var videoPlayer: FlutterVideoPlayer?
+
   override func application(_ application: UIApplication,
                             didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
   ) -> Bool {
 
-    let project = FlutterDartProject(fromDefaultSourceForConfiguration: ())
-
-    window = UIWindow(frame: UIScreen.main.bounds)
-
-    if let flutterController = MediaPlayerViewController(project: project, nibName: nil, bundle: nil) {
-      initListeners(flutterController)
-
-      window.rootViewController = flutterController
-      window.makeKeyAndVisible()
+    if let controller = self.window.rootViewController as? Flutter.FlutterViewController {
+      videoPlayer = FlutterVideoPlayer(controller)
+      videoPlayer?.initListeners()
+    } else {
+      print("no FlutterViewController")
     }
 
     return true
   }
-
-  func initListeners(_ controller: MediaPlayerViewController) {
-    let playVideoListener = OnPlayVideo(messageName: "playVideo", controller: controller)
-    controller.add(playVideoListener)
-
-    let pauseVideoListener = OnPauseVideo(messageName: "pauseVideo", controller: controller)
-    controller.add(pauseVideoListener)
-
-    let stopVideoListener = OnStopVideo(messageName: "stopVideo", controller: controller)
-    controller.add(stopVideoListener)
-  }
 }
+
