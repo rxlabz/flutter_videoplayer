@@ -93,9 +93,6 @@ var progressChannel = FlutterMessageChannel( name: name, binaryMessenger: contro
 self.progressChannel.sendMessage(PlayerMessage(type: 2, data: progress).toMap())
 ```
 
-In this example, the MediaPlayerViewController class extends FlutterViewController, and implements the ability to draw a video "on top" of the flutter app. 
-
-The viewController also send video progress infos to flutter.
 
 ### Android, Audio...
 

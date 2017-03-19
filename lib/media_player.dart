@@ -21,7 +21,6 @@ class _MediaplayerState extends State<MediaPlayer> {
 
   bool isPlaying = false;
 
-
   @override
   void initState() {
     super.initState();
