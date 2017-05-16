@@ -1,5 +1,7 @@
 # Flutter iOS Videoplayer
 
+:warning: this example is not up to date with the last version of flutter platform API. Same principles but somes method names changed.
+
 An example of native ios swift videoplayer on top of a [flutter](http://flutter.io) app using the Platform messaging API.
 
 ![screen](screen.png)
